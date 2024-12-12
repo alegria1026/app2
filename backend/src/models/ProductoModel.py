@@ -77,3 +77,20 @@ class ProductoModel():
             return affected_rows
         except Exception as ex:
             raise Exception(ex)
+    
+    def delete_producto(id_producto):
+        try:
+            connection = get_connection()
+
+            # Ejecutar la consulta para eliminar el producto por su ID
+            query = "DELETE FROM public.producto WHERE id_producto = %s"
+            
+            with connection.cursor() as cursor:
+                cursor.execute(query, (id_producto,))
+                affected_rows = cursor.rowcount  # Verifica cuántas filas fueron afectadas
+                connection.commit()
+
+            connection.close()
+            return affected_rows
+        except Exception as ex:
+            raise Exception(ex)

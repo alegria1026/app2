@@ -1,9 +1,8 @@
 <script setup>
-
 </script>
 
 <template>
-  <transition name="route" mode="out-in">
+  <transition name="route" mode="in-out">
     <router-view />
   </transition>
 </template>

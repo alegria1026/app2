@@ -92,7 +92,7 @@ export default {
 }
 
 .loginBox {
-  min-width: fit-content;
+  margin-left: 26.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

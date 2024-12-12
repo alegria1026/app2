@@ -17,7 +17,7 @@ class ProductoModel():
                     producto = Producto(row[0], row[1], row[2], row[3])
                     productos.append(producto.to_JSON())
 
-                connection.close
+                connection.close()
                 return productos
         except Exception as ex:
             raise Exception(ex)
@@ -31,9 +31,49 @@ class ProductoModel():
                 cursor.execute(query, (producto.nombre_producto, producto.precio_producto, producto.descripcion_producto))
 
                 id_producto = cursor.fetchone()[0]
-
                 connection.commit()
                 connection.close()
                 return id_producto
+        except Exception as ex:
+            raise Exception(ex)
+        
+    def update_producto(id_producto, data):
+        try:
+            connection = get_connection()
+
+            # Construir dinámicamente los campos a actualizar
+            update_fields = []
+            update_values = []
+
+            if 'nombre' in data:
+                update_fields.append("nombre_producto = %s")
+                update_values.append(data['nombre'])
+
+            if 'precio' in data:
+                update_fields.append("precio_producto = %s")
+                update_values.append(data['precio'])
+
+            if 'descripcion' in data:
+                update_fields.append("descripcion_producto = %s")
+                update_values.append(data['descripcion'])
+
+            # Si no hay campos para actualizar
+            if not update_fields:
+                raise Exception("No se proporcionaron campos para actualizar")
+
+            # Agregar id_producto al final de los valores
+            update_values.append(id_producto)
+
+            # Generar consulta SQL dinámica
+            query = f"UPDATE public.producto SET {', '.join(update_fields)} WHERE id_producto = %s"
+
+            # Ejecutar la consulta
+            with connection.cursor() as cursor:
+                cursor.execute(query, update_values)
+                affected_rows = cursor.rowcount
+                connection.commit()
+
+            connection.close()
+            return affected_rows
         except Exception as ex:
             raise Exception(ex)

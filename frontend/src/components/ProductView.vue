@@ -176,6 +176,8 @@ fetchProducts();
   width: 100%;
   max-width: 600px;
   margin-bottom: 2rem;
+  color: #222222;
+
 }
 
 .product-list table {
@@ -265,5 +267,8 @@ fetchProducts();
 
 .close-btn:hover {
   color: #d93636;
+}
+h2{
+  color: #42b983;
 }
 </style> 

@@ -157,6 +157,7 @@ fetchProducts();
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  background-color: var(--color-background-soft);
 }
 
 .MainTitle {

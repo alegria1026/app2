@@ -89,7 +89,7 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-color: #f2f2f2;
+  background-color: var(--color-background-soft);;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

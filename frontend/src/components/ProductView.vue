@@ -139,13 +139,15 @@ fetchProducts();
 <style scoped>
 /* Estilos del botón de edición */
 .edit-btn {
-  padding: 0.5rem 1rem;
   background: #ffc107;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 6px;
   margin-right: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 10px var(--color-border-hover);
+
 }
 
 .edit-btn:hover {
@@ -193,12 +195,16 @@ fetchProducts();
 }
 
 .delete-btn {
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   background: #ff4d4d;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 10px var(--color-border-hover);
+
 }
 
 .delete-btn:hover {
